@@ -7,7 +7,6 @@ import "./styles.css";
 function SalesCard() {
 
     const min = new Date(new Date().setDate(new Date().getDate() - 365));
-
     const max = new Date();
 
     const [minDate, setminDate] = useState(min); 
