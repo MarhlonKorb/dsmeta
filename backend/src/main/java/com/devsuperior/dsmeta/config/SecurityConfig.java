@@ -1,7 +1,6 @@
-package config;
+package com.devsuperior.dsmeta.config;
 
 import java.util.Arrays;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,7 +22,6 @@ public class SecurityConfig {
         http.cors().and().csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeHttpRequests((auth) -> auth.anyRequest().permitAll());
-
         return http.build();
     }
 
