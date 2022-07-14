@@ -32,16 +32,24 @@ public class SmsService {
 
         Sale sale = saleRepository.findById(saleId).get();
 
-        String date = sale.getDate().getMonthValue() + "/" + + sale.getDate().getYear();
+        StringBuilder date = new StringBuilder(sale.getDate().
+                getMonthValue()).
+                append("/").
+                append(sale.getDate().getYear());
 
-        String msg = "O vendedor " + sale.getSellerName() + " foi destaque em " + date + " com um total de R$ " + String.format("%.2f",sale.getAmount());
+        StringBuilder msg = new StringBuilder("O vendedor ").
+                append(sale.getSellerName()).
+                append(" foi destaque em ").
+                append(date).
+                append(" com um total de R$ ").
+                append(String.format("%.2f", sale.getAmount()));
 
         Twilio.init(twilioSid, twilioKey);
 
         PhoneNumber to = new PhoneNumber(twilioPhoneTo);
         PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
-        Message message = Message.creator(to, from, msg).create();
+        Message message = Message.creator(to, from, String.valueOf(msg)).create();
 
         System.out.println(message.getSid());
     }

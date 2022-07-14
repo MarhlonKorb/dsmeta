@@ -15,7 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="dsmeta" />
+          <factory-entry name="dsmeta" value="4f3980c2-233d-4602-9dc0-878a2d3d0940" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
