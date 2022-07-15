@@ -32,10 +32,7 @@ public class SmsService {
 
         Sale sale = saleRepository.findById(saleId).get();
 
-        StringBuilder date = new StringBuilder(sale.getDate().
-                getMonthValue()).
-                append("/").
-                append(sale.getDate().getYear());
+        String date = sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
 
         StringBuilder msg = new StringBuilder("O vendedor ").
                 append(sale.getSellerName()).
